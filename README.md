@@ -9,6 +9,7 @@ This is a web application that lists various News sources gotten from News API. 
 
 ## Specifications
 |Behavior|	Input	|Outcome|
+|_________|__________|________|
 |Display News sources	|Click	|List of various News sources is displayed|
 |More details| Click the article| More details displayed|
 
