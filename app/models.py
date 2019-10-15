@@ -1,23 +1,26 @@
-import datetime
+class Articles:
+    '''
+    define news objects
+    '''
 
-class NewsSource:
-    def __init__(self,id,name,url,description,category,language,country):
-        '''This function creates an object for the news sources'''
-        self.id= id
+    def __init__(self,d,name,author,title,description,url,urlToImage,publishedAt):
+        self.id = id
+        self.name =name
+        self.author =author
+        self.title =title
+        self.description =description
+        self.url =url
+        self.urlToImage =urlToImage
+        self.publishedAt =publishedAt
+class Source:
+    '''
+    define source
+            '''
+    def __init__(self, id, name, description, url, category, country,title):
+        self.id = id
         self.name = name
+        self.description = description  
         self.url = url
-        self.description = description
-        self.category = category.capitalize()
-        self.language = language
-        self.country = country
-
-class NewsArticle:
-    def __init__(self,author,title,description,url,image,published,content):
-        ''' This function creates an instance of a source news '''
-        self.author = author
-        self.title = title
-        self.description = description
-        self.url = url
-        self.image = image
-        self.published = published
-        self.content = content
+        self.category = category
+        self.title =title
+        self.country= country
