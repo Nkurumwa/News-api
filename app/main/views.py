@@ -1,9 +1,33 @@
-from flask import render_template,request,redirect,url_for
+from flask import render_template
 from . import main
-from ..requests import get_news,get_news,search_movie
-from .forms import ReviewForm
-from ..models import Review
+from ..request import get_news,get_details
+#views
 
-# Views
+
 @main.route('/')
 def index():
+    '''
+    function that returns index page
+    '''
+    # message = 'hello world'
+    # title = 'the best news website ever'
+
+    general_list = get_news('us', 'general')
+    business_list = get_news('us', 'business')
+    technology_list = get_news('us', 'technology')
+    sports_list = get_news('us', 'sports')
+    health_list = get_news('us', 'health')
+    science_list = get_news('us', 'science')
+    entertainment_list = get_news('us', 'entertainment')
+    # test_args = 'Working!'
+    return render_template('index.html',general=general_list,business=business_list,technology=technology_list,sports=sports_list,health=health_list,science=science_list,entertainment=entertainment_list)
+   
+@main.route('/news/<id>')
+def news(id):
+    """
+    View articles page that returns the news article from a highlight
+    """
+    news_args = get_details(id)
+    highlight_args = 'Route Working!!'
+    # name = f'{results_list}'
+    return render_template('news.html',highlight_param=highlight_args,news=news_args)
